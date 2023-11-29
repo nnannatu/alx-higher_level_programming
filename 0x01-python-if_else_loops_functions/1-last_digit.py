@@ -5,7 +5,8 @@ number = random.randint(-10000, 10000)
         that's why I've to convert to str first to do my \
         incantations before converting back to int.
 '''
-last_digit = int(str(number)[-1])
+number_str = str(number)[-1]
+last_digit = int(number_str)
 if number < 0:
     last_digit = -last_digit
 if last_digit > 5:
