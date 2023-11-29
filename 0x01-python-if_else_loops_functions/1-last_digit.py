@@ -1,10 +1,6 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-'''Rem: while reviewing, that you cannot manipulate int, \
-        that's why I've to convert to str first to do my \
-        incantations before converting back to int.
-'''
 number_str = str(number)[-1]
 last_digit = int(number_str)
 if number < 0:
