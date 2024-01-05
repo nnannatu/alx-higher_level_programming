@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+'''Defines a rectangle'''
+
 class Rectangle:
     '''
     A rectangle is a four-sided shape with
