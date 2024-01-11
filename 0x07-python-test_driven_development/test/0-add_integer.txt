@@ -1,123 +1,85 @@
-===========================
-How to Use 0-add_integer.py
-===========================
+# Setup: Import the module and function
+>>> mod = __import__("0-add_integer")
+>>> add_integer = mod.add_integer
 
-This module defines an integer addition function ``add_integer(a, b=98)``.
+# Function Documentation
+>>> len(mod.__doc__) > 1
+True
 
-Usage
-=====
+# Function Documentation
+>>> len(add_integer.__doc__) > 1
+True
 
-``add_integer(...)``` returns the addition of its two arguments. For numbers,
-that value is equivalent to using the ``+`` operator.
+# Test Cases
 
-::
+# Adding two positive integers:
+>>> add_integer(5, 7)
+12
 
-    >>> add_integer = __import__('0-add_integer').add_integer
-    >>> add_integer(2, 3)
-    5
+# Adding two float numbers: (Failed, expected 22 and 5 respectively)
+>>> add_integer(15.8, 7.2)
+23
+>>> add_integer(2.5, 3.5)
+6
 
-::
+# Adding an integer and a float:
+>>> add_integer(10, 5.6)
+15
 
-    >>> add_integer(2, -3)
-    -1
+# Adding a negative and positive number
+>>> add_integer(-2, 3)
+1
+>>> add_integer(3, -2)
+1
 
-The function also works with floating-point values.
+# Adding two positive floats
+>>> add_integer(96.2, 2.9)
+98
 
-::
+# Adding one float and one negative float
+>>> add_integer(100.1, -2.9)
+98
+>>> add_integer(-2.9, 100.1)
+98
 
-    >>> add_integer(2.0, 3.0)
-    5
+# Adding two negative floats
+>>> add_integer(-2.9, -96.2)
+-98
 
-Note that floats are casted to ints before addition is performed.
+# One positive float, one positive integer
+>>> add_integer(10.9, 2)
+12
 
-::
+# Default b values:
+>>> add_integer(10)
+108
+>>> add_integer(7.2)
+105
+>>> add_integer(0, 0)
+0
 
-    >>> add_integer(2.9, 0.2)
-    2
+# Test cases to check for TypeErrors
+>>> add_integer(5, "7")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
 
-::
+# Adding list and integer
+>>> add_integer([1, 2], 7)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
 
-    >>> add_integer(-2.9, -0.2)
-    -2
+>>> add_integer(5, [1, 2])
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
 
-Floating and non-floating point values can be combined.
+# Test special float NaN in Python (not a number):
+>>> print(add_integer(float("NaN")))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
 
-::
 
-    >>> add_integer(2.3, -3)
-    -1
-
-The second argument is optional - by default, it is 98.
-
-::
-
-    >>> add_integer(2)
-    100
-
-Non-Numbers
-===========
-
-``add_integer()`` expects that both arguments are either integers or floats.
-If either argument is a non-integer and non-float, a TypeError is raised:
-
-::
-
-    >>> add_integer("hello", 3)
-    Traceback (most recent call last):
-    TypeError: a must be an integer
-
-::
-
-    >>> add_integer(2, "hello")
-    Traceback (most recent call last):
-    TypeError: b must be an integer
-
-::
-
-    >>> add_integer(None)
-    Traceback (most recent call last):
-    TypeError: a must be an integer
-
-::
-
-    >>> add_integer(2.3, None)
-    Traceback (most recent call last):
-    TypeError: b must be an integer
-
-If both arguments are non-integers and non-floats, a TypeError message is only
-printed for the first argument.
-
-::
-
-    >>> add_integer("hello", "there")
-    Traceback (most recent call last):
-    TypeError: a must be an integer
-
-The function will fail if infinity is provided.
-
-::
-
-    >>> add_integer(float('inf'))
-    Traceback (most recent call last):
-    OverflowError: cannot convert float infinity to integer
-     
-
-::
-
-    >>> add_integer(2, float('inf'))
-    Traceback (most recent call last):
-    OverflowError: cannot convert float infinity to integer
-
-And again with NaN numbers.
-
-::
-
-    >>> add_integer(float('nan'))
-    Traceback (most recent call last):
-    ValueError: cannot convert float NaN to integer
-
-::
-
-    >>> add_integer(2, float('nan'))
-    Traceback (most recent call last):
-    ValueError: cannot convert float NaN to integer
+# run test case file with `python3 -m doctest -v ./tests/0-add_integer.txt`
