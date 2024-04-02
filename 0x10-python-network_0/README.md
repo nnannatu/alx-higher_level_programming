@@ -52,6 +52,7 @@ Great! You've completed the quiz successfully! Keep going!
 | What an HTTP response status code| An HTTP response status code indicates the outcome of the request, such as success, redirection, or error.      |
 | What an HTTP Cookie is           | An HTTP Cookie is a small piece of data sent from a website and stored on the user's computer by the browser.   |
 | How to make a request with cURL  | cURL is a command-line tool used to transfer data to or from a server using various protocols, including HTTP.  |
-| What happens when you type google.com in your browser (Application level) | When you type google.com in your browser, it initiates a DNS lookup to resolve the domain name to an IP address. Then, an HTTP request is made to the server to fetch the requested resource (in this case, the Google homepage), and the response is rendered in the browser window. |
+| What happens when you type google.com in your browser (Application level) | When you type google.com in your browser, it initiates a DNS lookup to resolve the domain name to an IP address. Then, an HTTP request is made to the servels
+r to fetch the requested resource (in this case, the Google homepage), and the response is rendered in the browser window. |
 
 Please note that the provided information serves as a brief overview of each topic. For detailed explanations, refer to the corresponding resources or documentation.
